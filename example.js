@@ -1,8 +1,15 @@
 /* jshint strict: true */
 
 var net = require('net')
-  , msg = require('./message')
-  , asn1 = require('sasn1');
+  , msg = require('./message');
+
+// optional dependency to print the certificate
+var asn1 = null;
+try {
+  asn1 = require('sasn1');
+} catch(e) {
+  console.log('if you want to see the certificate content install sasn1 `npm install sasn1`');
+}
 
 var readBuf = new Buffer(0);
 
@@ -60,12 +67,12 @@ socket.on('tls-packet', function(packet) {
   if (packet.handshake && packet.handshake.HandshakeType == 'certificate') {
     certificate = packet.handshake.Certificates[packet.handshake.Certificates.length-1];
     console.log('certificate:');
-    console.log(certificate);
-    var crt = asn1.decode(certificate.Bytes);
-    
-    var keyN = crt[0][5][1][0];
-    var keyE = crt[0][5][1][1];
-    console.log(crt, keyN.length, keyE.length);
+    if (asn1) {
+      var crt = asn1.decode(certificate.Bytes);
+      console.log(crt);
+    } else {
+      console.log(certificate);
+    }
   }
   
   if (packet.handshake && packet.handshake.HandshakeType == 'server_hello_done') {

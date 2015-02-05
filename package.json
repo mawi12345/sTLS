@@ -13,9 +13,7 @@
     "encoder"
   ],
   "dependencies": {
-    "moment": "^2.9.0",
-    "sasn1": "^0.1.1",
-    "ursa": "^0.8.1"
+    "sasn1": "^0.1.1"
   },
   "devDependencies": {
     "deep-diff": "^0.3.0"
