@@ -13,8 +13,8 @@ try {
 
 var readBuf = new Buffer(0);
 
-//var socket = net.connect({host: 'google.com', port: 443}, function() {
-var socket = net.connect({host: '127.0.0.1', port: 3333}, function() {
+var socket = net.connect({host: 'google.com', port: 443}, function() {
+//var socket = net.connect({host: '127.0.0.1', port: 3333}, function() {
   console.log('connected');
   
   var client_hello = msg.fix({
