@@ -1,0 +1,36 @@
+{
+  "name": "stls",
+  "version": "0.2.1",
+  "description": "TLS packet decoder / encoder",
+  "main": "message.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "TLS",
+    "SSL",
+    "decoder",
+    "encoder"
+  ],
+  "dependencies": {
+    "moment": "^2.9.0",
+    "sasn1": "^0.1.1",
+    "ursa": "^0.8.1"
+  },
+  "devDependencies": {
+    "deep-diff": "^0.3.0"
+  },
+  "scripts": {
+    "test": "nodeunit test/test-*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mawi12345/sTLS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mawi12345/sTLS/issues"
+  },
+  "homepage": "https://github.com/mawi12345/sTLS",
+  "author": "Martin Wind",
+  "license": "MIT"
+}
